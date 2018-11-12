@@ -16,7 +16,7 @@ env:
       #FTP_PASSWORD
     #- secure: 
       #FTP_HOST
-    #- secure: 
+    - secure: r2qTtfAt3eqUZ+hp8TgJZj5GbRHXWlsmR+zJgUIwx0mGDB8fkrXqf+DhqW/utlyXinWFkFpr4lD197pb5cCg6VriCytGVw/81KhI9s8ddxcA+g1qOf+vzmv9Gip1deQFjraGhpNVwi1rEdUdvdpT+L1o2MFKBwrts8X46VokaOtsmrKihZIjhe6kgpHwM6GMj5JZcY7JzHa4S1k9+VzjeQLc3sjrJ+gHnAPd4vzYVKpx/ncEql9APILOEnwefQed478eobu/K4Zwoy/lgNcsi63zX+g7GVt8twixjIeW6i4YNjc8GYQTlc3VAL/P4HT0Q7xi9q/sW7pOL+nuSqAkedpO5xqjsLZ3KtKUmgqoWyl+jXgUxwGJOvdBSGOfBv9RM+LvXNFqHfG0sCn+OUFQY64j6ufOU0uQlUbHgYtqAkXVRzn1i2eW/L3yenBLNsbprSdT7kj33waJlaZnohCN7q5uqplwa1BKNAABmN8jbl8v6jV6OGQLNIUBJtT4EyGSfp6T7TumVGdmHMDJPdETcMVHgYbltXRNBJIpC6wiPjIZK0XL+89+mqL209o4nb5luKKQ6dPvYnJhbywOgyK3uAFjcIqMlaPUSUPPumLj1Keq83Dvm7EVno/Pj8we4k49x6Fc54rdT/3RFiP/Rf2SkFgsgo6fyUM8NNvi2huRXW4=
       #FTP_DIR
     #- secure: 
 deploy:
