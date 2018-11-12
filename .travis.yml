@@ -1,0 +1,27 @@
+dist: trusty
+language: csharp
+mono: none
+dotnet: 2.1.403
+solution: Payroll.sln
+addons:
+  apt:
+    packages:
+      - sshpass
+script:
+  - scripts/build.sh
+env:
+  global:
+      #FTP_USER
+    #- secure: 
+      #FTP_PASSWORD
+    #- secure: 
+      #FTP_HOST
+    #- secure: 
+      #FTP_DIR
+    #- secure: 
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: travis

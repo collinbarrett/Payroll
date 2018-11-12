@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.Web", "src\Payroll.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A8B8A1A-DAB9-4A08-AE9E-1A3C0D71974A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A1DF0A9B-B145-4349-B922-2D68F6EFC978}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\build.sh = scripts\build.sh
+		scripts\deploy.sh = scripts\deploy.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
