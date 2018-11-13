@@ -11,6 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.Core", "src\Payroll
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.Infrastructure", "src\Payroll.Infrastructure\Payroll.Infrastructure.csproj", "{32C8A926-3DEC-4561-9FEB-7166E6BF787D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{9646404F-A033-45B5-B8CC-2B210252F9A6}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\createDb.sql = scripts\createDb.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
