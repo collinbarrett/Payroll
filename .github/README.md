@@ -1,7 +1,5 @@
 # Payroll
 
-## Description
-
 A demo application allowing employers to input employees and their dependents and get a preview of the costs of employees’ benefits packages.
 
 ## Assumptions
@@ -18,9 +16,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
- - Latest version of a MySQL flavor (MySQL, *MariaDB, PostgreSQL)
-  - *MariaDB used by maintainer.
- - Latest version of the .NET Core SDK
+ - Latest version of MySQL flavor (MySQL, *MariaDB, PostgreSQL)
+   - *MariaDB used by maintainer
+ - Latest version of .NET Core SDK
 
 ### Installing
 
