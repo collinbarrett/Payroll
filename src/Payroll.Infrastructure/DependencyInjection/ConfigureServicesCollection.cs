@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Payroll.Infrastructure.DependencyInjection
 {
     public static class ConfigureServicesCollection
     {
-        public static void AddInfrastructureServices(this IServiceCollection services)
+        public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration config)
         {
-            const string connection = "Data Source=payroll.db";
-            services.AddDbContextPool<PayrollContext>(options => options.UseSqlite(connection));
+            services.AddEntityFrameworkMySql()
+                .AddDbContextPool<PayrollContext>(o => o.UseMySql(config.GetConnectionString("PayrollConnection")));
         }
     }
 }

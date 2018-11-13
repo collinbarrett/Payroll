@@ -331,3 +331,4 @@ ASALocalRun/
 
 # Payroll Custom Ignores
 *.db
+appsettings.*.json

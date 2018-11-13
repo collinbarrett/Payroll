@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.Web", "src\Payroll.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A8B8A1A-DAB9-4A08-AE9E-1A3C0D71974A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.Core", "src\Payroll.Core\Payroll.Core.csproj", "{131BDF95-BA91-47F5-A81D-81CE2F3554A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.Core", "src\Payroll.Core\Payroll.Core.csproj", "{131BDF95-BA91-47F5-A81D-81CE2F3554A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroll.Infrastructure", "src\Payroll.Infrastructure\Payroll.Infrastructure.csproj", "{32C8A926-3DEC-4561-9FEB-7166E6BF787D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroll.Infrastructure", "src\Payroll.Infrastructure\Payroll.Infrastructure.csproj", "{32C8A926-3DEC-4561-9FEB-7166E6BF787D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

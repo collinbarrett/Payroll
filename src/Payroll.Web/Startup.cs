@@ -19,7 +19,7 @@ namespace Payroll.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddInfrastructureServices();
+            services.AddInfrastructureServices(Configuration);
 
             services.Configure<CookiePolicyOptions>(options =>
             {
