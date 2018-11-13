@@ -1,0 +1,48 @@
+﻿@model Payroll.Core.Entities.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Person)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Person.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BenefitsDeduction)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BenefitsDeduction)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateCreatedUtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateModifiedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateModifiedUtc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
