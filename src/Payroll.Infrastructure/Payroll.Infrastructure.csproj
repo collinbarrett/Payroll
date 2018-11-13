@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Payroll.Core\Payroll.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>
