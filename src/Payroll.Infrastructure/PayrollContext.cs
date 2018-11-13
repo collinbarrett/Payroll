@@ -9,6 +9,7 @@ namespace Payroll.Infrastructure
         {
         }
 
+        public DbSet<Dependent> Dependents { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Person> Persons { get; set; }
     }

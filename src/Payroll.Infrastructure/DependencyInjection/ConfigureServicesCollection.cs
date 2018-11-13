@@ -9,7 +9,8 @@ namespace Payroll.Infrastructure.DependencyInjection
         public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddEntityFrameworkMySql()
-                .AddDbContextPool<PayrollContext>(o => o.UseMySql(config.GetConnectionString("PayrollConnection")));
+                .AddDbContextPool<PayrollContext>(o =>
+                    o.UseMySql(config.GetConnectionString("PayrollConnection")));
         }
     }
 }
