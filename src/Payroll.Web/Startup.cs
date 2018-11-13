@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Payroll.Infrastructure.DependencyInjection;
 
 namespace Payroll.Web
 {
@@ -18,12 +19,13 @@ namespace Payroll.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddInfrastructureServices(Configuration);
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
