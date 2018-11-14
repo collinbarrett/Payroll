@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - Payroll.Web</title>
+    <title>@ViewData["Title"] - Payroll</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
@@ -31,9 +31,6 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li>
                     <a asp-area="" asp-controller="Employees" asp-action="Index">Employees</a>
                 </li>
             </ul>
@@ -47,7 +44,7 @@
     @RenderBody()
     <hr/>
     <footer>
-        <p>&copy; 2018 - Payroll.Web</p>
+        <p>&copy; 2018 - <a href="https://github.com/collinbarrett/Payroll">Collin M. Barrett</a></p>
     </footer>
 </div>
 
