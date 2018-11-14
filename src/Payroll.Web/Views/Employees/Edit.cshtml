@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 <h4>Employee</h4>
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -19,22 +19,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Salary" class="control-label"></label>
-                <input asp-for="Salary" class="form-control" />
+                <input asp-for="Salary" class="form-control"/>
                 <span asp-validation-for="Salary" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BenefitsDeduction" class="control-label"></label>
-                <input asp-for="BenefitsDeduction" class="form-control" />
+                <input asp-for="BenefitsDeduction" class="form-control"/>
                 <span asp-validation-for="BenefitsDeduction" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Id"/>
             <div class="form-group">
                 <label asp-for="DateCreatedUtc" class="control-label"></label>
-                <input asp-for="DateCreatedUtc" class="form-control" />
+                <input asp-for="DateCreatedUtc" class="form-control"/>
                 <span asp-validation-for="DateCreatedUtc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default"/>
             </div>
         </form>
     </div>
@@ -45,5 +45,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
