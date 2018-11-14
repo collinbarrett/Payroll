@@ -20,24 +20,24 @@ namespace Payroll.Infrastructure.Migrations
             modelBuilder.Entity("Payroll.Core.Entities.Dependent", b =>
             {
                 b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+                 .ValueGeneratedOnAdd()
+                 .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
                 b.Property<decimal>("BenefitsDeduction")
-                    .ValueGeneratedOnAdd()
-                    .HasDefaultValue(500m);
+                 .ValueGeneratedOnAdd()
+                 .HasDefaultValue(500m);
 
                 b.Property<DateTime?>("DateCreatedUtc")
-                    .IsRequired()
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("TIMESTAMP")
-                    .HasDefaultValueSql("current_timestamp()");
+                 .IsRequired()
+                 .ValueGeneratedOnAdd()
+                 .HasColumnType("TIMESTAMP")
+                 .HasDefaultValueSql("current_timestamp()");
 
                 b.Property<DateTime?>("DateModifiedUtc")
-                    .IsRequired()
-                    .ValueGeneratedOnAddOrUpdate()
-                    .HasColumnType("TIMESTAMP")
-                    .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
+                 .IsRequired()
+                 .ValueGeneratedOnAddOrUpdate()
+                 .HasColumnType("TIMESTAMP")
+                 .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
 
                 b.Property<int>("EmployeeId");
 
@@ -55,30 +55,30 @@ namespace Payroll.Infrastructure.Migrations
             modelBuilder.Entity("Payroll.Core.Entities.Employee", b =>
             {
                 b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+                 .ValueGeneratedOnAdd()
+                 .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
                 b.Property<decimal>("BenefitsDeduction")
-                    .ValueGeneratedOnAdd()
-                    .HasDefaultValue(1000m);
+                 .ValueGeneratedOnAdd()
+                 .HasDefaultValue(1000m);
 
                 b.Property<DateTime?>("DateCreatedUtc")
-                    .IsRequired()
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("TIMESTAMP")
-                    .HasDefaultValueSql("current_timestamp()");
+                 .IsRequired()
+                 .ValueGeneratedOnAdd()
+                 .HasColumnType("TIMESTAMP")
+                 .HasDefaultValueSql("current_timestamp()");
 
                 b.Property<DateTime?>("DateModifiedUtc")
-                    .IsRequired()
-                    .ValueGeneratedOnAddOrUpdate()
-                    .HasColumnType("TIMESTAMP")
-                    .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
+                 .IsRequired()
+                 .ValueGeneratedOnAddOrUpdate()
+                 .HasColumnType("TIMESTAMP")
+                 .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
 
                 b.Property<int>("PersonId");
 
                 b.Property<decimal>("Salary")
-                    .ValueGeneratedOnAdd()
-                    .HasDefaultValue(52000m);
+                 .ValueGeneratedOnAdd()
+                 .HasDefaultValue(52000m);
 
                 b.HasKey("Id");
 
@@ -90,20 +90,20 @@ namespace Payroll.Infrastructure.Migrations
             modelBuilder.Entity("Payroll.Core.Entities.Person", b =>
             {
                 b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
+                 .ValueGeneratedOnAdd()
+                 .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
                 b.Property<DateTime?>("DateCreatedUtc")
-                    .IsRequired()
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("TIMESTAMP")
-                    .HasDefaultValueSql("current_timestamp()");
+                 .IsRequired()
+                 .ValueGeneratedOnAdd()
+                 .HasColumnType("TIMESTAMP")
+                 .HasDefaultValueSql("current_timestamp()");
 
                 b.Property<DateTime?>("DateModifiedUtc")
-                    .IsRequired()
-                    .ValueGeneratedOnAddOrUpdate()
-                    .HasColumnType("TIMESTAMP")
-                    .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
+                 .IsRequired()
+                 .ValueGeneratedOnAddOrUpdate()
+                 .HasColumnType("TIMESTAMP")
+                 .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
 
                 b.Property<string>("FirstName");
 
@@ -117,22 +117,22 @@ namespace Payroll.Infrastructure.Migrations
             modelBuilder.Entity("Payroll.Core.Entities.Dependent", b =>
             {
                 b.HasOne("Payroll.Core.Entities.Employee", "Employee")
-                    .WithMany("Dependents")
-                    .HasForeignKey("EmployeeId")
-                    .OnDelete(DeleteBehavior.Cascade);
+                 .WithMany("Dependents")
+                 .HasForeignKey("EmployeeId")
+                 .OnDelete(DeleteBehavior.Cascade);
 
                 b.HasOne("Payroll.Core.Entities.Person", "Person")
-                    .WithMany()
-                    .HasForeignKey("PersonId")
-                    .OnDelete(DeleteBehavior.Cascade);
+                 .WithMany()
+                 .HasForeignKey("PersonId")
+                 .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity("Payroll.Core.Entities.Employee", b =>
             {
                 b.HasOne("Payroll.Core.Entities.Person", "Person")
-                    .WithMany()
-                    .HasForeignKey("PersonId")
-                    .OnDelete(DeleteBehavior.Cascade);
+                 .WithMany()
+                 .HasForeignKey("PersonId")
+                 .OnDelete(DeleteBehavior.Cascade);
             });
 #pragma warning restore 612, 618
         }

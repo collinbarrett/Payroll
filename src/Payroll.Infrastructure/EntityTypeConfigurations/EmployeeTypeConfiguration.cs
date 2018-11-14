@@ -10,9 +10,9 @@ namespace Payroll.Infrastructure.EntityTypeConfigurations
         {
             base.Configure(entityTypeBuilder);
             entityTypeBuilder.Property(x => x.Salary)
-                .HasDefaultValue(2000 * 26);
+                             .HasDefaultValue(2000 * 26);
             entityTypeBuilder.Property(x => x.BenefitsDeduction)
-                .HasDefaultValue(1000);
+                             .HasDefaultValue(1000);
         }
     }
 }

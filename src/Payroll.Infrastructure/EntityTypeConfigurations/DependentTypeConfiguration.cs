@@ -10,7 +10,7 @@ namespace Payroll.Infrastructure.EntityTypeConfigurations
         {
             base.Configure(entityTypeBuilder);
             entityTypeBuilder.Property(x => x.BenefitsDeduction)
-                .HasDefaultValue(500);
+                             .HasDefaultValue(500);
         }
     }
 }

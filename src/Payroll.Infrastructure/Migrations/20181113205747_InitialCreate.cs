@@ -13,7 +13,8 @@ namespace Payroll.Infrastructure.Migrations
                 table => new
                 {
                     Id = table.Column<int>()
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                              .Annotation("MySql:ValueGenerationStrategy",
+                                  MySqlValueGenerationStrategy.IdentityColumn),
                     DateCreatedUtc = table.Column<DateTime>("TIMESTAMP", nullable: false,
                         defaultValueSql: "current_timestamp()"),
                     DateModifiedUtc = table.Column<DateTime>("TIMESTAMP", nullable: false,
@@ -28,7 +29,8 @@ namespace Payroll.Infrastructure.Migrations
                 table => new
                 {
                     Id = table.Column<int>()
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                              .Annotation("MySql:ValueGenerationStrategy",
+                                  MySqlValueGenerationStrategy.IdentityColumn),
                     DateCreatedUtc = table.Column<DateTime>("TIMESTAMP", nullable: false,
                         defaultValueSql: "current_timestamp()"),
                     DateModifiedUtc = table.Column<DateTime>("TIMESTAMP", nullable: false,
@@ -53,7 +55,8 @@ namespace Payroll.Infrastructure.Migrations
                 table => new
                 {
                     Id = table.Column<int>()
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                              .Annotation("MySql:ValueGenerationStrategy",
+                                  MySqlValueGenerationStrategy.IdentityColumn),
                     DateCreatedUtc = table.Column<DateTime>("TIMESTAMP", nullable: false,
                         defaultValueSql: "current_timestamp()"),
                     DateModifiedUtc = table.Column<DateTime>("TIMESTAMP", nullable: false,

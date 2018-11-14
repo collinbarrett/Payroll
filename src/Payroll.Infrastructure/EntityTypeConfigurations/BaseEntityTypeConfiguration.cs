@@ -9,17 +9,17 @@ namespace Payroll.Infrastructure.EntityTypeConfigurations
         public virtual void Configure(EntityTypeBuilder<TEntity> entityTypeBuilder)
         {
             entityTypeBuilder.Property(x => x.Id)
-                .UseMySqlIdentityColumn();
+                             .UseMySqlIdentityColumn();
             entityTypeBuilder.Property(x => x.DateCreatedUtc)
-                .HasColumnType("TIMESTAMP")
-                .ValueGeneratedOnAdd()
-                .IsRequired()
-                .HasDefaultValueSql("current_timestamp()");
+                             .HasColumnType("TIMESTAMP")
+                             .ValueGeneratedOnAdd()
+                             .IsRequired()
+                             .HasDefaultValueSql("current_timestamp()");
             entityTypeBuilder.Property(x => x.DateModifiedUtc)
-                .HasColumnType("TIMESTAMP")
-                .ValueGeneratedOnAddOrUpdate()
-                .IsRequired()
-                .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
+                             .HasColumnType("TIMESTAMP")
+                             .ValueGeneratedOnAddOrUpdate()
+                             .IsRequired()
+                             .HasDefaultValueSql("current_timestamp() ON UPDATE current_timestamp()");
         }
     }
 }
