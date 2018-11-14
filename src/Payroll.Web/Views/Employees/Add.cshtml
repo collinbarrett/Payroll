@@ -1,22 +1,49 @@
-﻿@model Payroll.Core.DTOs.EmployeeDto
+﻿@model Payroll.Core.Entities.Employee
 
 @{
     ViewData["Title"] = "Add Employee";
 }
 
-<h2>Add</h2>
+<h2>Add Employee</h2>
 
-<h4>Employee</h4>
 <hr/>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Add">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control"/>
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control"/>
+                <label asp-for="Person.FirstName" class="control-label"></label>
+                <input asp-for="Person.FirstName" class="form-control"/>
+                <label asp-for="Person.LastName" class="control-label"></label>
+                <input asp-for="Person.LastName" class="form-control"/>
+                
+                <h3>Dependents</h3>
+                @*<table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Dependents[0].FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Dependents[0].LastName)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @for (var i = 0; i < 10; i++)
+                    {
+                        <tr>
+                            <td>
+                                <input asp-for="Dependents[i].FirstName" class="form-control"/>
+                            </td>
+                            <td>
+                                <input asp-for="Dependents[i].LastName" class="form-control" />
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>*@
             </div>
             <div class="form-group">
                 <input type="submit" value="Add" class="btn btn-default"/>

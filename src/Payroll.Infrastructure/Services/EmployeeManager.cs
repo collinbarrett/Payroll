@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
-using Payroll.Core.DTOs;
 using Payroll.Core.Entities;
 
 namespace Payroll.Infrastructure.Services
@@ -16,31 +15,25 @@ namespace Payroll.Infrastructure.Services
             _payrollDbContext = payrollDbContext;
 
         public async Task<IEnumerable<Employee>> GetAllAsync() =>
-            await _payrollDbContext.Employees.AsNoTracking().ToListAsync();
+            await _payrollDbContext.Employees
+                                   .Include(e => e.Person)
+                                   .AsNoTracking()
+                                   .ToListAsync();
 
-        public async Task AddAsync(EmployeeDto employeeDto)
+        public async Task AddAsync(Employee employee)
         {
-            var person = await GetOrAddPerson(employeeDto);
-            var employee = new Employee
-            {
-                Person = person
-            };
+            employee.Person = await GetOrAddPerson(employee.Person);
             _payrollDbContext.Employees.Add(employee);
             await _payrollDbContext.SaveChangesAsync();
         }
 
-        private async Task<Person> GetOrAddPerson(EmployeeDto employeeDto)
+        private async Task<Person> GetOrAddPerson(Person person)
         {
-            var person = await _payrollDbContext.Persons.FirstOrDefaultAsync(p =>
-                p.LastName == employeeDto.LastName &&
-                p.FirstName == employeeDto.FirstName);
-            if (person != null)
-                return person;
-            person = new Person
-            {
-                LastName = employeeDto.LastName,
-                FirstName = employeeDto.FirstName
-            };
+            var existingPerson = await _payrollDbContext.Persons.FirstOrDefaultAsync(p =>
+                p.LastName == person.LastName &&
+                p.FirstName == person.FirstName);
+            if (existingPerson != null)
+                return existingPerson;
             _payrollDbContext.Persons.Add(person);
             return person;
         }

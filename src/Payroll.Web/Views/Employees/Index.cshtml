@@ -7,22 +7,22 @@
 <h2>Employees</h2>
 
 <p>
-    <a asp-action="Add">Create New</a>
+    <a asp-action="Add">Add New</a>
 </p>
 <table class="table">
     <thead>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Person.LastName)
+            @Html.DisplayNameFor(m => m.Person.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Person.FirstName)
+            @Html.DisplayNameFor(m => m.Person.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Salary)
+            @Html.DisplayNameFor(m => m.Salary)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BenefitsDeduction)
+            @Html.DisplayNameFor(m => m.BenefitsDeduction)
         </th>
         <th></th>
     </tr>
@@ -32,21 +32,21 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Person.LastName)
+                @Html.DisplayFor(i => item.Person.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Person.FirstName)
+                @Html.DisplayFor(i => item.Person.FirstName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Salary)
+                @string.Format("{0:c}", item.Salary)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BenefitsDeduction)
+                @string.Format("{0:c}", item.BenefitsDeduction)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>
     }
