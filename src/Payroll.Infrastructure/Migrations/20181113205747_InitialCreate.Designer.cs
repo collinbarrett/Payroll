@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Payroll.Infrastructure.Migrations
 {
-    [DbContext(typeof(PayrollContext))]
+    [DbContext(typeof(PayrollDbContext))]
     [Migration("20181113205747_InitialCreate")]
     partial class InitialCreate
     {

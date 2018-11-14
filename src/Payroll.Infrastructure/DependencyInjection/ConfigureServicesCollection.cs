@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Payroll.Infrastructure.Services;
 
 namespace Payroll.Infrastructure.DependencyInjection
 {
@@ -9,8 +11,9 @@ namespace Payroll.Infrastructure.DependencyInjection
         public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddEntityFrameworkMySql()
-                .AddDbContextPool<PayrollContext>(o =>
-                    o.UseMySql(config.GetConnectionString("PayrollConnection")));
+                    .AddDbContextPool<PayrollDbContext>(o =>
+                        o.UseMySql(config.GetConnectionString("PayrollConnection")));
+            services.TryAddScoped<EmployeeManager>();
         }
     }
 }

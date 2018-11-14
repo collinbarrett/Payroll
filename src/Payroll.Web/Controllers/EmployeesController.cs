@@ -1,125 +1,107 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Payroll.Core.Entities;
-using Payroll.Infrastructure;
+using Payroll.Core.DTOs;
+using Payroll.Infrastructure.Services;
 
 namespace Payroll.Web.Controllers
 {
     public class EmployeesController : Controller
     {
-        private readonly PayrollContext _context;
+        private readonly EmployeeManager _employeeManager;
 
-        public EmployeesController(PayrollContext context) => _context = context;
+        public EmployeesController(EmployeeManager employeeManager) => _employeeManager = employeeManager;
 
-        public async Task<IActionResult> Index()
-        {
-            var payrollContext = _context.Employees.Include(e => e.Person);
-            return View(await payrollContext.ToListAsync());
-        }
+        public async Task<IActionResult> Index() => View(await _employeeManager.GetAllAsync());
 
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null) return NotFound();
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null) return NotFound();
 
-            var employee = await _context.Employees
-                .Include(e => e.Person)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (employee == null) return NotFound();
+        //    var employee = await _dbContext.Employees
+        //        .Include(e => e.Person)
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (employee == null) return NotFound();
 
-            return View(employee);
-        }
+        //    return View(employee);
+        //}
 
-        public IActionResult Create()
-        {
-            ViewData["PersonId"] = new SelectList(_context.Persons, "Id", "Id");
-            return View();
-        }
+        public IActionResult Add() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(
-            [Bind("PersonId,Salary,BenefitsDeduction,Id,DateCreatedUtc,DateModifiedUtc")]
-            Employee employee)
+        public async Task<IActionResult> Add(EmployeeDto employee)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(employee);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewData["PersonId"] = new SelectList(_context.Persons, "Id", "Id", employee.PersonId);
-            return View(employee);
-        }
-
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null) return NotFound();
-
-            var employee = await _context.Employees.FindAsync(id);
-            if (employee == null) return NotFound();
-            ViewData["PersonId"] = new SelectList(_context.Persons, "Id", "Id", employee.PersonId);
-            return View(employee);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,
-            [Bind("PersonId,Salary,BenefitsDeduction,Id,DateCreatedUtc,DateModifiedUtc")]
-            Employee employee)
-        {
-            if (id != employee.Id) return NotFound();
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(employee);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!EmployeeExists(employee.Id))
-                        return NotFound();
-                    throw;
-                }
-
-                return RedirectToAction(nameof(Index));
-            }
-
-            ViewData["PersonId"] = new SelectList(_context.Persons, "Id", "Id", employee.PersonId);
-            return View(employee);
-        }
-
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null) return NotFound();
-
-            var employee = await _context.Employees
-                .Include(e => e.Person)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (employee == null) return NotFound();
-
-            return View(employee);
-        }
-
-        [HttpPost]
-        [ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var employee = await _context.Employees.FindAsync(id);
-            _context.Employees.Remove(employee);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+                return View(employee);
+            await _employeeManager.AddAsync(employee);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool EmployeeExists(int id)
-        {
-            return _context.Employees.Any(e => e.Id == id);
-        }
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null) return NotFound();
+
+        //    var employee = await _dbContext.Employees.FindAsync(id);
+        //    if (employee == null) return NotFound();
+        //    ViewData["PersonId"] = new SelectList(_dbContext.Persons, "Id", "Id", employee.PersonId);
+        //    return View(employee);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id,
+        //    [Bind("PersonId,Salary,BenefitsDeduction,Id,DateCreatedUtc,DateModifiedUtc")]
+        //    Employee employee)
+        //{
+        //    if (id != employee.Id) return NotFound();
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _dbContext.Update(employee);
+        //            await _dbContext.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!EmployeeExists(employee.Id))
+        //                return NotFound();
+        //            throw;
+        //        }
+
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    ViewData["PersonId"] = new SelectList(_dbContext.Persons, "Id", "Id", employee.PersonId);
+        //    return View(employee);
+        //}
+
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null) return NotFound();
+
+        //    var employee = await _dbContext.Employees
+        //        .Include(e => e.Person)
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (employee == null) return NotFound();
+
+        //    return View(employee);
+        //}
+
+        //[HttpPost]
+        //[ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    var employee = await _dbContext.Employees.FindAsync(id);
+        //    _dbContext.Employees.Remove(employee);
+        //    await _dbContext.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+        //private bool EmployeeExists(int id)
+        //{
+        //    return _dbContext.Employees.Any(e => e.Id == id);
+        //}
     }
 }

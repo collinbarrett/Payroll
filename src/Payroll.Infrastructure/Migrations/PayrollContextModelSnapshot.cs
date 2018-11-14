@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Payroll.Infrastructure.Migrations
 {
-    [DbContext(typeof(PayrollContext))]
+    [DbContext(typeof(PayrollDbContext))]
     internal class PayrollContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

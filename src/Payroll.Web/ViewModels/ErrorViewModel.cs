@@ -1,4 +1,4 @@
-namespace Payroll.Web.Models
+namespace Payroll.Web.ViewModels
 {
     public class ErrorViewModel
     {

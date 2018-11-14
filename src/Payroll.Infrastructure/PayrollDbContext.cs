@@ -4,9 +4,9 @@ using Payroll.Infrastructure.EntityTypeConfigurations;
 
 namespace Payroll.Infrastructure
 {
-    public class PayrollContext : DbContext
+    public class PayrollDbContext : DbContext
     {
-        public PayrollContext(DbContextOptions options) : base(options)
+        public PayrollDbContext(DbContextOptions options) : base(options)
         {
         }
 
