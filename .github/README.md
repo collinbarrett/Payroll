@@ -24,4 +24,4 @@ A demo application allowing employers to input employees and their dependents an
  - use `/scripts/createDb.sql` to create db user and db
  - populate `PayrollConnection` in `/src/Payroll.Web/appsettings.json`
  - `dotnet run --project src/Payroll.Web/Payroll.Web.csproj`
- - navigate to `http://localhost:50635/` in a browser
+ - navigate to `http://localhost:5001` in a browser
