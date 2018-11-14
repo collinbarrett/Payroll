@@ -12,10 +12,7 @@ namespace Payroll.Web.Controllers
     {
         private readonly PayrollContext _context;
 
-        public EmployeesController(PayrollContext context)
-        {
-            _context = context;
-        }
+        public EmployeesController(PayrollContext context) => _context = context;
 
         public async Task<IActionResult> Index()
         {
